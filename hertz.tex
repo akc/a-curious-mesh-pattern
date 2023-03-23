@@ -28,22 +28,22 @@
  \end{tikzpicture}}
 }
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{openproblem}[theorem]{Open Problem}
-\newtheorem*{openproblem*}{Open Problem}
-\newtheorem{conjecture}[theorem]{Conjecture}
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{proposition}[theorem]{Proposition}
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{corollary}[theorem]{Corollary}
+% \newtheorem{openproblem}[theorem]{Open Problem}
+% \newtheorem*{openproblem*}{Open Problem}
+\newtheorem*{conjecture}{Conjecture}
 
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem*{remark*}{Remark}
-\newtheorem{example}[theorem]{Example}
-\newtheorem*{example*}{Example}
+% \theoremstyle{definition}
+% \newtheorem{definition}[theorem]{Definition}
+% \newtheorem{remark}[theorem]{Remark}
+% \newtheorem*{remark*}{Remark}
+% \newtheorem{example}[theorem]{Example}
+% \newtheorem*{example*}{Example}
 
-\title{Note: Resolving Conjecture 3.14 in ``From Hertzprung's problem to pattern-rewriting systems''}
+\title{Note: Mesh patterns and a cycle restriction}
 \author{Anders Claesson, Henning Ulfarsson}
 \date{\today}
 
@@ -52,9 +52,10 @@
 \maketitle
 
 \begin{abstract}
-    This will have to be short!
+    We resolve Conjecture 3.14 in the paper ``From Hertzprung's problem to pattern-rewriting systems'' by the first author.
 \end{abstract}
 
+The first author~\cite[Conjecture 3.14]{Cl2022} makes the following conjecture.
 \begin{conjecture}
     We have
     \[\sum_{n\geq 0}|\Sym_n(p)|\mskip1mu x^n
@@ -65,35 +66,41 @@
 \end{conjecture}
 
 Let $F(x) = \fsum{\frac{x}{1+x^2}}$. Brualdi and Deutsch~\cite{Brualdi2012} have shown
-that $F(x) = (1+x^2)A(x)$ where $A(x)$ is the generating number of permutations of $[n]$
+that $F(x) = (1+x^2)A(x)$ where $A(x)$ is the generating function for the number of permutations of $[n]$
 whose disjoint cycle decompositions have no adjacent transpositions, that is, no cycles
 of the form $(i,i+1)$. This is A177249 in the OEIS~\cite{OEIS}.
-
-Sketch: When we map through the Foata fundamental transformation (which way?)
+When we map through the Foata fundamental transformation (which way?)
 the restriction on the adjacent transpositions becomes avoidance of the mesh patterns
 \[
-    \pattern{}{2}{1/2,2/1}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1} \quad
-    \pattern{}{3}{1/1,2/3/,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2} = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
+    q_1 = \pattern{}{2}{1/2,2/1}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1} \quad
+    q_2 = \pattern{}{3}{1/1,2/3/,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2} % = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
 \]
+The pattern $q_2$ is equivalent to the pattern $p$ in the conjecture by the Shading Lemma REF.
+Now $\Sym_n(p) = \Sym_n(q_2) =  \Sym_n(q_1, q_2) \sqcup \Sym_n(q_2) \cap Co_n(q_1)$.
+The proof now follows from the fact that permutations that contain $q_1$ and avoid $q_2$
+are precisely the permutations that are the direct sum of $21$ and a permutation that avoid $q_1$.
 
-This conjecture is based on computing the numbers $|\Sym_n(p)|$ for
-$n\leq 14$. They are $1$, $1$, $2$, $5$, $20$, $103$, $630$, $4475$,
-$36232$, $329341$, $3320890$, $36787889$, $444125628$, $5803850515$,
-and $81625106990$. At the time of writing this sequence is not in the
-OEIS~\cite{OEIS}. If the conjecture is true then there is, however, a
-close connection with a sequence in the OEIS, namely A177249. It is
-defined by letting $a_n$ be number of permutations of $[n]$ whose
-disjoint cycle decompositions have no adjacent transpositions, that
-is, no cycles of the form $(i,i+1)$. Let
-$F(x)=\sum_{n\geq 0}|\Sym_n(p)|x^n$ be the sought series and let
-$A(x)=\sum_{n\geq 0}a_nx^n$.  Brualdi and Deutsch~\cite{Brualdi2012}
-have shown that $(1+x^2)A(x)=F(x)$.  Our conjecture is thus equivalent
-to $|\Sym_n(p)|=a_n+a_{n-2}$ for $n\geq 2$. Alternatively, one may
+
+We highlight that the following (reword) is still open.
+Alternatively, one may
 note that the compositional inverse of $x/(1+x^2)$ is $xC(x^2)$, where
 $C(x)$ is the generating function for the Catalan numbers. Thus, our
 conjecture is also equivalent to $[x^n]F(xC(x^2))=n!$, which could
 lead to a novel decomposition of permutations.
 
+% This conjecture is based on computing the numbers $|\Sym_n(p)|$ for
+% $n\leq 14$. They are $1$, $1$, $2$, $5$, $20$, $103$, $630$, $4475$,
+% $36232$, $329341$, $3320890$, $36787889$, $444125628$, $5803850515$,
+% and $81625106990$. At the time of writing this sequence is not in the
+% OEIS~\cite{OEIS}. If the conjecture is true then there is, however, a
+% close connection with a sequence in the OEIS, namely A177249. It is
+% defined by letting $a_n$ be number of permutations of $[n]$ whose
+% disjoint cycle decompositions have no adjacent transpositions, that
+% is, no cycles of the form $(i,i+1)$. Let
+% $F(x)=\sum_{n\geq 0}|\Sym_n(p)|x^n$ be the sought series and let
+% $A(x)=\sum_{n\geq 0}a_nx^n$.  Brualdi and Deutsch~\cite{Brualdi2012}
+% have shown that $(1+x^2)A(x)=F(x)$.  Our conjecture is thus equivalent
+% to $|\Sym_n(p)|=a_n+a_{n-2}$ for $n\geq 2$.
 
 \bibliographystyle{plain}
 \bibliography{hertz}
