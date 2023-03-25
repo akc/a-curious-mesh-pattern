@@ -66,22 +66,27 @@ The first author~\cite[Conjecture 3.14]{Cl2022} makes the following conjecture.
 \end{conjecture}
 
 Let $F(x) = \fsum{\frac{x}{1+x^2}}$. Brualdi and Deutsch~\cite{Brualdi2012} have shown
-that $F(x) = (1+x^2)A(x)$ where $A(x)$ is the generating function for the number of permutations of $[n]$
-whose disjoint cycle decompositions have no adjacent transpositions, that is, no cycles
-of the form $(i,i+1)$. This is A177249 in the OEIS~\cite{OEIS}.
-When we map through the Foata fundamental transformation (which way?)
-the restriction on the adjacent transpositions becomes avoidance of the mesh patterns
+that $F(x) = (1+x^2)A(x)$ where $A(x)$ is the generating function for the number of
+permutations of $[n]$ whose disjoint cycle decompositions have no adjacent
+transpositions, that is, no cycles of the form $(i,i+1)$. This is A177249 in the
+OEIS~\cite{OEIS}. When we map through Foata's fundamental transformation~\cite{foata} (the left-to
+right maxima variation) the lack of adjacent transpositions translates to avoidance of
+the mesh patterns
 \[
     q_1 = \pattern{}{2}{1/2,2/1}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1} \quad
     q_2 = \pattern{}{3}{1/1,2/3/,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2} % = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
 \]
-The pattern $q_2$ is equivalent to the pattern $p$ in the conjecture by the Shading Lemma REF.
-Now $\Sym_n(p) = \Sym_n(q_2) =  \Sym_n(q_1, q_2) \sqcup \Sym_n(q_2) \cap Co_n(q_1)$.
+By the Shading Lemma~\cite{shading}, the pattern $p$ is \emph{coincident} to the pattern $q_2$ in the
+conjecture, in the sense that $\Sym_n(p) = \Sym_n(q_2)$ for all $n$. Therefore,
+\[
+    \Sym_n(p) = \Sym_n(q_2) =  \Sym_n(q_1, q_2) \sqcup \Sym_n(q_2) \cap Co_n(q_1).
+\]
 The proof now follows from the fact that permutations that contain $q_1$ and avoid $q_2$
-are precisely the permutations that are the direct sum of $21$ and a permutation that avoid $q_1$.
+are precisely the permutations that are the direct sum of the permutation $21$ and a
+permutation that avoid $q_1$.
 
-
-We highlight that the following (reword) is still open.
+REWORD:
+We highlight that the following is still open.
 Alternatively, one may
 note that the compositional inverse of $x/(1+x^2)$ is $xC(x^2)$, where
 $C(x)$ is the generating function for the Catalan numbers. Thus, our
