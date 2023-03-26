@@ -3,14 +3,13 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
-
 \usepackage{tikz}
 \usetikzlibrary{patterns, matrix}
 \tikzstyle{NE-lines}=[pattern=north east lines, pattern color=black!45]
 
 \newcommand{\fsum}[1]{\sum_{m\geq 0}m!\left(#1\right)^{m}}
-\newcommand{\Sym}{\mathcal{S}}
-\newcommand{\Co}{\mathcal{C}o}
+\newcommand{\Sym}{\mathnormal{S}}
+\newcommand{\Co}{\mathit{Co}}
 
 
 
@@ -49,14 +48,14 @@
 \date{\today}
 
 \begin{document}
-
 \maketitle
+\thispagestyle{empty}
 
 \begin{abstract}
     We resolve Conjecture 3.14 in the paper ``From Hertzprung's problem to pattern-rewriting systems'' by the first author.
 \end{abstract}
 
-The first author~\cite[Conjecture 3.14]{Cl2022} makes the following conjecture.
+The first author~\cite[Conjecture 3.14]{Cl2022} conjectured the following.
 \begin{conjecture}
     We have
     \[\sum_{n\geq 0}|\Sym_n(p)|\mskip1mu x^n
@@ -64,40 +63,50 @@ The first author~\cite[Conjecture 3.14]{Cl2022} makes the following conjecture.
         \;\text{ where }\,
         p = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
     \]
+    and $\Sym_n(p)$ denotes the set of permutations avoiding $p$.
 \end{conjecture}
 
-Let $F(x) = \fsum{\frac{x}{1+x^2}}$ and let $A(x)$ be the generating function for the
+Let us denote the right-hand side of the conjectured identity by $F(x)$, and
+let $A(x)$ be the generating function for the
 number of permutations of $[n]$ whose disjoint cycle decompositions have no adjacent
 transpositions, that is, no cycles of the form $(i,i+1)$. The coefficients of $A(x)$
-make up sequence A177249 in the Online Encyclopedia of Integer Sequenes~\cite{OEIS}.
-Brualdi and Deutsch~\cite{Brualdi2012} have shown that these two functions are related
-by the equation
-\[
+form sequence A177249 in the Online Encyclopedia of Integer Sequenes~\cite{OEIS}.
+Brualdi and Deutsch~\cite{Brualdi2012} have shown that these two generating functions are related
+by the identity
+\begin{equation}\label{brualdi-deutsch}
     F(x) = (1+x^2)A(x).
-\]
+\end{equation}
 Consider a permutation that has no adjacent transpositions in its cycle decomposition.
-When it is mapped through Foata's fundamental transformation~\cite{foata} (the left-to
-right maxima variation) the lack of adjacent transpositions translates to avoidance of
-the mesh patterns
+When it is mapped through Foata's fundamental transformation~\cite{foata}---the left-to-right
+maxima variation to be specific---the avoidance of adjacent transpositions translates to avoidance of
+the two mesh patterns
 \[
-    q_1 = \pattern{}{2}{1/2,2/1}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1} \qquad
-    q_2 = \pattern{}{3}{1/1,2/3/,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2} % = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
+    q_1 = \pattern{}{2}{1/2,2/1}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1} \quad\text{and}\quad
+    q_2 = \pattern{}{3}{1/1,2/3/,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
+    % = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
 \]
-By the Shading Lemma~\cite{shading}, the pattern $p$ is \emph{coincident} to the pattern
-$q_2$, in the sense that $\Sym_n(p) = \Sym_n(q_2)$ for all $n$.
-Therefore,
+By the Shading Lemma~\cite{shading}, the pattern $p$ is \emph{coincident} with the pattern
+$q_2$, in the sense that $\Sym_n(p) = \Sym_n(q_2)$ for all $n\geq 0$. By conditioning on
+whether a permutation avoiding $q_2$ also avoids $q_1$ or contains $q_1$ we find that
 \[
-    \Sym_n(p) = \Sym_n(q_2) =  \Sym_n(q_1, q_2) \sqcup \Co_n(q_1) \cap \Sym_n(q_2),
+    \Sym_n(p) =  \Sym_n(q_1, q_2) \cup \bigl(\Co_n(q_1) \cap \Sym_n(q_2)\bigr),
 \]
-where $\Co_n(q_1)$ is the set of permutations that contain $q_1$. The proof of the
-conjecture now follows from the fact that permutations that contain $q_1$ and avoid
-$q_2$ are precisely the permutations that are the direct sum of the permutation $21$ and
-a permutation that avoids $q_1$.
+where the union is disjoint and $\Co_n(q_1)$ denotes the set of
+permutations that contain $q_1$. Note that a permutation $\pi$ contains
+$q_1$ and avoids $q_2$ precisely when it is the direct sum
+$\pi=12\oplus\sigma$ of the permutation $21$ and a permutation $\sigma$
+that avoids $q_1$ and $q_2$.  Indeed, \dots
+\textbf{TODO: Argue why this is true!}
+Using equation~\eqref{brualdi-deutsch} we have now
+established that the conjecture is true.
 
 We highlight that the first author also stated an alternative version of the conjecture,
 by noting that the compositional inverse of $x/(1+x^2)$ is $xC(x^2)$, where $C(x)$ is the
 generating function for the Catalan numbers. This implies that the conjecture we have
-proven is equivalent to $[x^n]F(xC(x^2))=n!$. Structurally this should be viewed as a
+proven is equivalent to
+\[[x^n]F(xC(x^2))=n!
+\]
+Structurally this should be viewed as a
 saying that any permutation can be uniquely obtained from a permutation that avoids $p$, by
 replacing each of its points with a unique permutation from a family of permutations
 enumerated by $xC(x^2)$. We have not been able to describe this structural decomposition.
