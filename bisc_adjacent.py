@@ -72,5 +72,23 @@ def cycle_is_increasing(c):
     return True
 
 
+def has_increasing_sorted_cycle(perm, i):
+    cd = perm.cycle_decomp()
+    for c in cd:
+        if len(c) == i:
+            if cycle_is_sorted_increasing(c):
+                return True
+    return False
+
+
+def cycle_is_sorted_increasing(c):
+    fc = sorted(fix_cycle(c))
+    for j in range(len(fc) - 1):
+        if fc[j + 1] - fc[j] != 1:
+            return False
+    return True
+
+
 q = 3
-auto_bisc(lambda perm: not has_increasing_cycle(inverse_Foata(perm), q))
+# auto_bisc(lambda perm: not has_increasing_cycle(inverse_Foata(perm), q))
+auto_bisc(lambda perm: not has_increasing_sorted_cycle(inverse_Foata(perm), q))
