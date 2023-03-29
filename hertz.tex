@@ -26,7 +26,7 @@
  \end{tikzpicture}}
 }
 
-\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem}{Theorem}
 % \newtheorem{proposition}[theorem]{Proposition}
 % \newtheorem{lemma}[theorem]{Lemma}
 % \newtheorem{corollary}[theorem]{Corollary}
@@ -43,14 +43,19 @@
 
 \title{Turning cycle restrictions to mesh patterns via Foata's fundamental transformation}
 \author{Anders Claesson and Henning Ulfarsson}
-\date{26 March 2023}
+\date{29 March 2023}
 
 \begin{document}
 \maketitle
 \thispagestyle{empty}
 
 \begin{abstract}
-    We resolve Conjecture 3.14 in the paper ``From Hertzprung's problem to pattern-rewriting systems'' by the first author.
+  An adjacent $q$-cycle is a natural generalization of an adjacent
+  transposition. We show that the number of adjacent $q$-cycles in a
+  permutation maps to the sum of occurrences of two mesh patterns under
+  Foata's fundamental transposition. As a corollary we resolve
+  Conjecture 3.14 in the paper ``From Hertzprung's problem to
+  pattern-rewriting systems'' by the first author.
 \end{abstract}
 
 The first author~\cite[Conjecture 3.14]{Cl2022} conjectured the following.
@@ -65,7 +70,9 @@ The first author~\cite[Conjecture 3.14]{Cl2022} conjectured the following.
 \end{conjecture}
 
 For $q \geq 1$ an \emph{adjacent $q$-cycle} in a permutation is a cycle of the form
-$(i,i+1,\ldots,i+q-1)$. In particular, an adjacent $1$-cycle is a fixed point and
+\[(i,i+1,\ldots,i+q-1).
+\]
+In particular, an adjacent $1$-cycle is a fixed point and
 an adjacent $2$-cycle is also called an \emph{adjacent transposition}.
 
 Talk about Foata ---the left-to-right maxima variation to be specific---
@@ -126,19 +133,21 @@ that avoids $q_1$ and $q_2$.  Indeed, \dots
 Using equation~\eqref{brualdi-deutsch} we have now
 established that the conjecture is true.
 
-We highlight that the first author also stated an alternative version of the conjecture,
-by noting that the compositional inverse of $x/(1+x^2)$ is $xC(x^2)$, where $C(x)$ is the
-generating function for the Catalan numbers. This implies that the conjecture we have
-proven is equivalent to
-\[[x^n]F(xC(x^2))=n!
-\]
-Structurally this should be viewed as a
-saying that any permutation can be uniquely obtained from a permutation that avoids $p$, by
-replacing each of its points with a unique permutation from a family of permutations
-enumerated by $xC(x^2)$. We have not been able to describe this structural decomposition.
+% We highlight that the first author also stated an alternative version of the conjecture,
+% by noting that the compositional inverse of $x/(1+x^2)$ is $xC(x^2)$, where $C(x)$ is the
+% generating function for the Catalan numbers. This implies that the conjecture we have
+% proven is equivalent to
+% \[[x^n]F(xC(x^2))=n!
+% \]
+% Structurally this should be viewed as a
+% saying that any permutation can be uniquely obtained from a permutation that avoids $p$, by
+% replacing each of its points with a unique permutation from a family of permutations
+% enumerated by $xC(x^2)$. We have not been able to describe this structural decomposition.
 
 \subsection*{Acknowledgements}
-Thank Dagstuhl. TODO
+This work was started at Schloss Dagstuhl (Leibniz-Zentrum für
+Informatik), seminar 23121, and we thank the institute and the
+organizers for the opportunity for us to participate.
 
 \bibliographystyle{plain}
 \bibliography{hertz}
