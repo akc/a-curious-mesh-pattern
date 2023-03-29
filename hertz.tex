@@ -26,7 +26,7 @@
  \end{tikzpicture}}
 }
 
-% \newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}
 % \newtheorem{proposition}[theorem]{Proposition}
 % \newtheorem{lemma}[theorem]{Lemma}
 % \newtheorem{corollary}[theorem]{Corollary}
@@ -41,7 +41,7 @@
 % \newtheorem{example}[theorem]{Example}
 % \newtheorem*{example*}{Example}
 
-\title{Mesh patterns and a cycle restriction}
+\title{Turning cycle restrictions to mesh patterns via Foata's fundamental transformation}
 \author{Anders Claesson and Henning Ulfarsson}
 \date{26 March 2023}
 
@@ -63,6 +63,18 @@ The first author~\cite[Conjecture 3.14]{Cl2022} conjectured the following.
     \]
     and $\Sym_n(p)$ denotes the set of permutations avoiding the mesh pattern $p$.
 \end{conjecture}
+
+For $q \geq 1$ an \emph{adjacent $q$-cycle} in a permutation is a cycle of the form
+$(i,i+1,\ldots,i+q-1)$. In particular, an adjacent $1$-cycle is a fixed point and
+an adjacent $2$-cycle is also called an \emph{adjacent transposition}.
+
+TODO example of a particular perm and the Foata map
+
+\begin{theorem}
+    For $q \geq 1$ and a permutation $\pi$ the number of adjacent $q$-cycles in $\pi$ is
+    equal to the sum of the number of occurrences of the mesh pattern $r_q$ and $s_q$ in the
+    image of $\pi$ under Foata's fundamental transformation.
+\end{theorem}
 
 Let us denote the right-hand side of the conjectured identity by $F(x)$, and
 let $A(x)$ be the generating function for the
@@ -108,6 +120,9 @@ Structurally this should be viewed as a
 saying that any permutation can be uniquely obtained from a permutation that avoids $p$, by
 replacing each of its points with a unique permutation from a family of permutations
 enumerated by $xC(x^2)$. We have not been able to describe this structural decomposition.
+
+\subsection*{Acknowledgements}
+Thank Dagstuhl. TODO
 
 \bibliographystyle{plain}
 \bibliography{hertz}
