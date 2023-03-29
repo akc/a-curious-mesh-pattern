@@ -71,6 +71,17 @@ an adjacent $2$-cycle is also called an \emph{adjacent transposition}.
 Talk about Foata ---the left-to-right maxima variation to be specific---
 TODO example of a particular perm and the Foata map
 
+\begin{alignat*}{2}
+  r_1 &= \pattern{}{1}{1/1}{0/0,0/1,1/0}
+  & s_1 &= \pattern{}{2}{1/1,2/2}{0/1,0/2,1/1,1/2,2/1}\\[1.5ex]
+  r_2 &= \pattern{}{2}{2/1,1/2}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1}
+  & s_2 &= \pattern{}{3}{1/1,2/3,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2} \\[1.5ex]
+  r_3 &= \pattern{}{3}{3/1,2/2,1/3}{
+    0/0,0/1,0/2,0/3,1/0,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/0,3/1,3/2}\qquad
+  & s_3 &= \pattern{}{4}{1/1,2/4,3/3,4/2}{
+    0/1,0/2,0/3,0/4,1/1,1/2,1/3,1/4,2/0,2/1,2/2,2/3,2/4,3/0,3/1,3/2,3/3,3/4,4/1,4/2,4/3} \\
+\end{alignat*}
+
 \begin{theorem}
     For $q \geq 1$ and a permutation $\pi$ the number of adjacent $q$-cycles in $\pi$ is
     equal to the sum of the number of occurrences of the mesh pattern $r_q$ and $s_q$ in the
