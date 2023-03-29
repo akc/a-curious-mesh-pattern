@@ -10,6 +10,7 @@
 \newcommand{\fsum}[1]{\sum_{m\geq 0}m!\left(#1\right)^{m}}
 \newcommand{\Sym}{\mathnormal{S}}
 \newcommand{\Co}{\mathit{Co}}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
 
 % \pattern{ options to tikzpicture }{ |\pi| }{ pi }{ R }
 % E.g., for p = ( 3241, { (0,2), (1,3), (1,4), (4,2), (4,3) } ) type:
@@ -58,26 +59,31 @@
   pattern-rewriting systems'' by the first author.
 \end{abstract}
 
-The first author~\cite[Conjecture 3.14]{Cl2022} conjectured the following.
-\begin{conjecture}
-    We have
-    \[\sum_{n\geq 0}|\Sym_n(p)|\mskip1mu x^n
-        = \fsum{\frac{x}{1+x^2}},
-        \;\text{ where }\,
-        p = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
-    \]
-    and $\Sym_n(p)$ denotes the set of permutations avoiding the mesh pattern $p$.
-\end{conjecture}
-
-For $q \geq 1$ an \emph{adjacent $q$-cycle} in a permutation is a cycle of the form
+Following Brualdi and Deutsch~\cite{Brualdi2012} let $q$ be a positive integer and
+define an \emph{adjacent $q$-cycle} in a permutation as a cycle of the form
 \[(i,i+1,\ldots,i+q-1).
 \]
-In particular, an adjacent $1$-cycle is a fixed point and
-an adjacent $2$-cycle is also called an \emph{adjacent transposition}.
-
-Talk about Foata ---the left-to-right maxima variation to be specific---
-TODO example of a particular perm and the Foata map
-
+In particular, an adjacent $1$-cycle is a fixed point and an adjacent
+$2$-cycle is also known as an \emph{adjacent transposition}. Brualdi and
+Deutsch showed, among other things, that if $a_q(n,k)$ is the number of
+permutations that---when expressed as a product of disjoint cycles---have
+exactly $k$ adjacent $q$-cycles, then
+\[
+  a_q(n,k) = \sum_{j=k}^{\floor{n/q}}(-1)^{k+j}\binom{j}{k}\frac{(n-(q-1)j)!}{j!}.
+\]
+Foata's fundamental transformation~\cite{foata} bijectively maps
+permutations with $k$ cycles to permutations with $k$ left-to-right
+minima by writing each cycle so that its leftmost element is the
+smallest, sorting the cycles in descending order with respect to their
+first element, and reading the resulting permutation as word from left
+to right. For instance,
+\[
+  % 123456789
+    134289657
+   = (1)(2,3,4)(5,8)(6,9,7) \;\mapsto\; 123458697.
+\]
+TODO: Write the patterns below in the form they have on discord which
+was correct after all \texttt{:-(}
 \begin{alignat*}{2}
   r_1 &= \pattern{}{1}{1/1}{0/0,0/1,1/0}
   & s_1 &= \pattern{}{2}{1/1,2/2}{0/1,0/2,1/1,1/2,2/1}\\[1.5ex]
@@ -98,6 +104,17 @@ TODO example of a particular perm and the Foata map
 \begin{proof}
 
 \end{proof}
+
+The first author~\cite[Conjecture 3.14]{Cl2022} conjectured the following.
+\begin{conjecture}
+    We have
+    \[\sum_{n\geq 0}|\Sym_n(p)|\mskip1mu x^n
+        = \fsum{\frac{x}{1+x^2}},
+        \;\text{ where }\,
+        p = \pattern{}{3}{1/1,2/3/,3/2}{0/2,0/3,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2}
+    \]
+    and $\Sym_n(p)$ denotes the set of permutations avoiding the mesh pattern $p$.
+\end{conjecture}
 
 Let us denote the right-hand side of the conjectured identity by $F(x)$, and
 let $A(x)$ be the generating function for the
