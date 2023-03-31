@@ -1,0 +1,5 @@
+permutation
+adjacent transposition
+mesh pattern
+generating function
+Foata's fundamental transformation
