@@ -197,23 +197,36 @@ conjectured by the first author~\cite[Conjecture 3.14]{Cl2022}.
 \end{proof}
 
 As above, assume that $\pi\mapsto\sigma$ under Foata's fundamental
-transformation. The number of cycles of $\pi$ equals the number of
-left-to-right minima of $\sigma$, which in turn is the number of
-occurrences of the mesh pattern
+transformation. A direct consequence of the definition of this map
+is that the number of cycles of $\pi$ equals the number of left-to-right
+minima of $\sigma$, which in turn is the number of occurrences of the
+mesh pattern
 \[
   \pattern{}{1}{1/1}{0/0}
 \]
-in $\sigma$. Likewise, we have shown that the statistic ``number of
+in $\sigma$. We have shown that the statistic ``number of
 fixed points'' translates to the mesh pattern statistic
 \[
   \pattern{scale=0.95}{1}{1/1}{0/0,1/0,1/1} \;+\, 
   \pattern{}{2}{1/2,2/1}{0/0,0/1,1/0,1/1,1/2}
 \]
 and more generally that the number of adjacent $q$-cycles translates to
-$r_q+s_q$. What other properties of the cycle structure of $\pi$ can be
-neatly expressed in terms of occurrences of mesh patterns in $\sigma$?
-Are the examples presented here special cases of a more general
-phenomena?
+$r_q+s_q$. A fixed point $\pi(i)=i$ of $\pi$ is said to be \emph{strong}
+if $j<i\Rightarrow \pi(j)<\pi(i)$ and $j>i\Rightarrow \pi(j)>\pi(i)$;
+see \cite[Ex.\ 1.32b]{EC1}.  Similarly, $\pi(i)=i$ is a
+\emph{skew strong fixed point} if $j<i\Rightarrow \pi(j)>\pi(i)$ and
+$j>i\Rightarrow \pi(j)<\pi(i)$. Equivalently~\cite{Bra11}, strong fixed
+point and skew strong fixed point are occurrences of the patterns
+\[
+  \pattern{}{1}{1/1}{1/0,0/1}
+  \quad\text{and}\!\quad
+  \pattern{}{1}{1/1}{0/0,1/1}
+\]
+respectively. It is easy to see that strong fixed points correspond to
+skew strong fixed points under Foata's fundamental transformation. What
+other properties of the cycle structure of $\pi$ can be neatly expressed
+in terms of occurrences of mesh patterns in $\sigma$?  Are the examples
+presented here special cases of a more general phenomena?
 
 
 \subsection*{Acknowledgements}
