@@ -1,4 +1,7 @@
 \documentclass[a4paper]{article}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL submitted/orig/hertz.tex                             Fri Oct 20 09:22:52 2023
+%DIF ADD submitted/rev-1/Cycle-restrictions-under-Foata.tex   Mon Oct 23 10:03:56 2023
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -35,7 +38,44 @@
 
 \title{Turning cycle restrictions into mesh patterns via Foata's fundamental transformation}
 \author{Anders Claesson and Henning Ulfarsson}
-\date{23 October 2023}
+\date{\DIFdelbegin \DIFdel{31 March }\DIFdelend \DIFaddbegin \DIFadd{23 October }\DIFaddend 2023}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 \maketitle
@@ -52,12 +92,12 @@
 
 Let $q$ be a positive integer. Following Brualdi and Deutsch~\cite{Brualdi2012},
 define an \emph{adjacent $q$-cycle} in a permutation as a cycle of the form
-\[(i,i+1,\dotsc,i+q-1).
+\[(i,i+1,\DIFdelbegin \DIFdel{\ldots}\DIFdelend \DIFaddbegin \dotsc\DIFaddend ,i+q-1).
 \]
 In particular, an adjacent $1$-cycle is a fixed point and an adjacent
 $2$-cycle is more commonly known as an \emph{adjacent transposition}. Brualdi and
 Deutsch showed, among other things, that if $a_q(n,k)$ is the number of
-permutations of $\{1,2,\dotsc,n\}$ that---when expressed as a product of disjoint cycles---have
+permutations \DIFaddbegin \DIFadd{of $\{1,2,\dotsc,n\}$ }\DIFaddend that---when expressed as a product of disjoint cycles---have
 exactly $k$ adjacent $q$-cycles, then
 \[
   a_q(n,k) = \sum_{j=k}^{\floor{n/q}}(-1)^{k+j}\binom{j}{k}\frac{(n-(q-1)j)!}{j!}.
@@ -70,8 +110,9 @@ respect to their first element, and reading the resulting permutation
 $\sigma$ as a word from left to right. For instance,
 \[
   % 123456789
-   \pi= 213967548
-  = (5,6,7)(4,9,8)(3)(1,2)
+   \pi= \DIFdelbegin \DIFdel{213956548
+  }\DIFdelend \DIFaddbegin \DIFadd{213967548
+  }\DIFaddend = (5,6,7)(4,9,8)(3)(1,2)
    \;\;\mapsto\;\; \sigma=567498312.
 \]
 Consider the effect of this transformation on a fixed point (an adjacent
@@ -89,7 +130,7 @@ fixed point is the smallest element, then it gets mapped to an occurrence
 of $r_1=\pattern{scale=0.95}{1}{1/1}{0/0,1/0,1/1}$\vbox to 2.6ex{}.
 
 Similarly, let us consider an adjacent transposition $(i, i+1)$ in
-$\pi$. Depending on whether or not $(i, i+1)$ is the rightmost cycle of
+$\pi$. Depending on whether or not $(i, i+1)$ is the \DIFdelbegin \DIFdel{first }\DIFdelend \DIFaddbegin \DIFadd{rightmost }\DIFaddend cycle of
 $\pi$ (i.e., whether or not $i=1$) it is mapped to an occurrence of one
 of the patterns
 \[
@@ -117,21 +158,23 @@ occurrence of $s_3$ in $\sigma$.
 It should now be clear how to define $r_q$ and $s_q$ for any $q\geq 1$,
 and that the following theorem is true.
 
-% \begin{figure}
-% \begin{alignat*}{2}
-%   r_1 &= \pattern{}{1}{1/1}{0/0,0/1,1/0}
-%   & s_1 &= \pattern{}{2}{1/1,2/2}{0/1,0/2,1/1,1/2,2/1}\\[1.5ex]
-%   r_2 &= \pattern{}{2}{2/1,1/2}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1}
-%   & s_2 &= \pattern{}{3}{1/1,2/3,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2} \\[1.5ex]
-%   r_3 &= \pattern{}{3}{3/1,2/2,1/3}{
-%     0/0,0/1,0/2,0/3,1/0,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/0,3/1,3/2}\qquad
-%   & s_3 &= \pattern{}{4}{1/1,2/4,3/3,4/2}{
-%     0/1,0/2,0/3,0/4,1/1,1/2,1/3,1/4,2/0,2/1,2/2,2/3,2/4,3/0,3/1,3/2,3/3,3/4,4/1,4/2,4/3} \\
-% \end{alignat*}
-% \caption{The mesh patterns $r_q$ and $s_q$}\label{mesh-patterns}
-% \end{figure}
+%DIF <  \begin{figure}
+%DIF <  \begin{alignat*}{2}
+%DIF <    r_1 &= \pattern{}{1}{1/1}{0/0,0/1,1/0}
+%DIF <    & s_1 &= \pattern{}{2}{1/1,2/2}{0/1,0/2,1/1,1/2,2/1}\\[1.5ex]
+%DIF <    r_2 &= \pattern{}{2}{2/1,1/2}{0/0,0/1,0/2,1/0,1/1,1/2,2/0,2/1}
+%DIF <    & s_2 &= \pattern{}{3}{1/1,2/3,3/2}{0/1,0/2,0/3,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/1,3/2} \\[1.5ex]
+%DIF <    r_3 &= \pattern{}{3}{3/1,2/2,1/3}{
+%DIF <      0/0,0/1,0/2,0/3,1/0,1/1,1/2,1/3,2/0,2/1,2/2,2/3,3/0,3/1,3/2}\qquad
+%DIF <    & s_3 &= \pattern{}{4}{1/1,2/4,3/3,4/2}{
+%DIF <      0/1,0/2,0/3,0/4,1/1,1/2,1/3,1/4,2/0,2/1,2/2,2/3,2/4,3/0,3/1,3/2,3/3,3/4,4/1,4/2,4/3} \\
+%DIF <  \end{alignat*}
+%DIF <  \caption{The mesh patterns $r_q$ and $s_q$}\label{mesh-patterns}
+%DIF <  \end{figure}
+\DIFdelbegin %DIFDELCMD < 
 
-\begin{theorem}\label{main}
+%DIFDELCMD < %%%
+\DIFdelend \begin{theorem}\label{main}
   Assume that $\pi\mapsto\sigma$ under Foata's fundamental
   transformation. For any $q \geq 1$, the number of adjacent $q$-cycles
   in $\pi$ is equal to the sum of the number of occurrences of $r_q$ and
@@ -160,13 +203,13 @@ conjectured by the first author~\cite[Conjecture 3.14]{Cl2022}.
   \[
     x^2(1+x^2)A'(x)-(1+x^2)(1-x-x^2)A(x)+1-x^2=0,\quad A(0)=1.
   \]
-  Term-wise differentiation yields
-  \[
-    \frac{d}{dx}\biggl(\frac{F(x)}{1+x^2}\biggr)
+  \DIFdelbegin \DIFdel{It }\DIFdelend \DIFaddbegin \DIFadd{Term-wise differentiation yields
+  }\[
+    \DIFadd{\frac{d}{dx}\biggl(\frac{F(x)}{1+x^2}\biggr)
     = \frac{(1-x-x^2)F(x)-1+x^2}{x^2(1+x^2)}
-  \]
-  and using this it is easy to verify that $F(x)/(1+x^2)$ satisfies the same
-  differential equation as $A(x)$. It thus suffices to show that
+  }\]
+  \DIFadd{and using this it }\DIFaddend is easy to verify that $F(x)/(1+x^2)$ satisfies the same
+  differential equation \DIFaddbegin \DIFadd{as $A(x)$}\DIFaddend . It thus suffices to show that
   $\sum_{n\geq 0}|\Sym_n(p)|\mskip1mu x^n = (1+x^2)A(x)$, or, equivalently,
   \begin{equation}\label{the-eq}
     |\Sym_n(p)| \,=\, a_2(n,0) + a_2(n-2,0)\quad\text{for $n\geq 2$.}
@@ -196,31 +239,46 @@ conjectured by the first author~\cite[Conjecture 3.14]{Cl2022}.
   equation~\eqref{the-eq} and concludes the proof.
 \end{proof}
 
-As above, assume that $\pi\mapsto\sigma$ under Foata's fundamental
+%DIF <  We highlight that the first author also stated an alternative version of the conjecture,
+%DIF <  by noting that the compositional inverse of $x/(1+x^2)$ is $xC(x^2)$, where $C(x)$ is the
+%DIF <  generating function for the Catalan numbers. This implies that the conjecture we have
+%DIF <  proven is equivalent to
+%DIF <  \MATHBLOCKSQUAREBRACKET[[x^n]]{F(xC(x^2))=n!
+%DIF <  }
+%DIF <  Structurally this should be viewed as a
+%DIF <  saying that any permutation can be uniquely obtained from a permutation that avoids $p$, by
+%DIF <  replacing each of its points with a unique permutation from a family of permutations
+%DIF <  enumerated by $xC(x^2)$. We have not been able to describe this structural decomposition.
+\DIFaddbegin \DIFadd{As above, assume that $\pi\mapsto\sigma$ under Foata's fundamental
 transformation. A direct consequence of the definition of this map
 is that the number of cycles of $\pi$ equals the number of left-to-right
 minima of $\sigma$, which in turn is the number of occurrences of the
 mesh pattern
-\[
-  \pattern{}{1}{1/1}{0/0}
-\]
-in $\sigma$. We have shown that the statistic ``number of
+}\[
+  \DIFadd{\pattern{}{1}{1/1}{0/0}
+}\]
+\DIFadd{in $\sigma$. We have shown that the statistic ``number of
 fixed points'' translates to the mesh pattern statistic
-\[
-  \pattern{scale=0.95}{1}{1/1}{0/0,1/0,1/1} \;+\, 
+}\[
+  \DIFadd{\pattern{scale=0.95}{1}{1/1}{0/0,1/0,1/1} \;+\, 
   \pattern{}{2}{1/2,2/1}{0/0,0/1,1/0,1/1,1/2}
-\]
-and more generally that the number of adjacent $q$-cycles translates to
-$r_q+s_q$. A fixed point $\pi(i)=i$ of $\pi$ is said to be \emph{strong}
-if $j<i\Rightarrow \pi(j)<\pi(i)$ and $j>i\Rightarrow \pi(j)>\pi(i)$;
-see \cite[Ex.\ 1.32b]{EC1}. In term of mesh patterns, strong fixed
+}\]
+\DIFadd{and more generally that the number of adjacent $q$-cycles translates to
+$r_q+s_q$. A fixed point $\pi(i)=i$ of $\pi$ is said to be }\emph{\DIFadd{strong}}
+\DIFadd{if $j<i\Rightarrow \pi(j)<\pi(i)$ and $j>i\Rightarrow \pi(j)>\pi(i)$;
+see \mbox{%DIFAUXCMD
+\cite[Ex.\ 1.32b]{EC1}}\hskip0pt%DIFAUXCMD
+. In term of mesh patterns, strong fixed
 points are occurrences of $\pattern{scale=0.8}{1}{1/1}{1/0,0/1}$ in
 $\pi$, and it is easy to see that they map to occurrences of
 $\pattern{scale=0.8}{1}{1/1}{0/0,1/1}$ in $\sigma$, sometimes called
-\emph{skew strong fixed points}~\cite{Bra11}.  What other properties of
+}\emph{\DIFadd{skew strong fixed points}}\DIFadd{~\mbox{%DIFAUXCMD
+\cite{Bra11}}\hskip0pt%DIFAUXCMD
+.  What other properties of
 the cycle structure of $\pi$ can be neatly expressed in terms of
 occurrences of mesh patterns in $\sigma$?  Are the examples presented
 here special cases of a more general phenomena?
+}\DIFaddend 
 
 
 \subsection*{Acknowledgements}
@@ -228,7 +286,58 @@ This work was started at Schloss Dagstuhl (Leibniz-Zentrum für
 Informatik), seminar 23121, and we thank the institute and the
 organizers for giving us the opportunity to participate.
 
-\bibliographystyle{plain}
-\bibliography{hertz}
+\DIFdelbegin %DIFDELCMD < \bibliographystyle{plain}
+%DIFDELCMD < \bibliography{hertz}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{thebibliography}{1}
+
+\bibitem{Bra11}
+\DIFadd{Petter Br}{\DIFadd{\"a}}\DIFadd{nd}{\DIFadd{\'e}}\DIFadd{n and Anders Claesson.
+}\newblock \DIFadd{Mesh patterns and the expansion of permutation statistics as sums of
+  permutation patterns.
+}\newblock {\em \DIFadd{Electron. J. Combin}}\DIFadd{, 18(2):P5, 2011.
+}
+
+\bibitem{Brualdi2012}
+\DIFadd{Richard~A. Brualdi and Emeric Deutsch.
+}\newblock \DIFadd{Adjacent }{\DIFadd{$q$}}\DIFadd{-cycles in permutations.
+}\newblock {\em \DIFadd{Ann. Comb.}}\DIFadd{, 16(2):203--213, 2012.
+}
+
+\bibitem{Cl2022}
+\DIFadd{Anders Claesson.
+}\newblock \DIFadd{From }{\DIFadd{H}}\DIFadd{ertzsprung's problem to pattern-rewriting systems.
+}\newblock {\em \DIFadd{Algebraic Combinatorics}}\DIFadd{, 5(6):1257--1277, 2022.
+}
+
+\bibitem{foata}
+\DIFadd{Dominique Foata.
+}\newblock \DIFadd{\'{E}tude alg\'ebrique de certains probl\'emes d'analyse combinatoire
+  et du calcul des probabilit\'es.
+}\newblock {\em \DIFadd{Publ. Inst. Statist. Univ. Paris}}\DIFadd{, 14:81--241, 1965.
+}
+
+\bibitem{shading}
+\DIFadd{\'I. Hilmarsson, I.~J\'onsd\'ottir, S.~Sigurdard\'ottir, L.~Vidarsd\'ottir, and
+  Henning Ulfarsson.
+}\newblock \DIFadd{Wilf-classification of mesh patterns of short length.
+}\newblock {\em \DIFadd{Electronic Journal of Combinatorics}}\DIFadd{, 22, 2015.
+}
+
+\bibitem{OEIS}
+\DIFadd{OEIS~Foundation Inc.
+}\newblock \DIFadd{The }{\DIFadd{O}}\DIFadd{nline }{\DIFadd{E}}\DIFadd{ncyclopedia of }{\DIFadd{I}}\DIFadd{nteger }{\DIFadd{S}}\DIFadd{equences.
+}\newblock \texttt{\DIFadd{https://oeis.org/}}\DIFadd{, 2023.
+}
+
+\bibitem{EC1}
+\DIFadd{Richard~P. Stanley.
+}\newblock {\em \DIFadd{Enumerative combinatorics}}\DIFadd{, volume~1 of }{\em \DIFadd{Cambridge Studies
+  in Advanced Mathematics}}\DIFadd{.
+}\newblock \DIFadd{Cambridge University Press, 2 edition, 2011.
+}
+
+\end{thebibliography}
+\DIFaddend 
 
 \end{document}
